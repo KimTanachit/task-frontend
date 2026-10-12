@@ -1,9 +1,9 @@
 let tasks = [];
-
+const API_URL = 'https://cpe-task-api-usb7.onrender.com/tasks';
 // 1. ดึงข้อมูลจาก Backend
 const fetchTasks = async () => {
     try {
-        const response = await fetch('https://cpe-task-api-usb7.onrender.com');
+        const response = await fetch(API_URL);
         const data = await response.json();
         
         tasks = data.map(item => ({
@@ -21,7 +21,7 @@ const fetchTasks = async () => {
 // 2. ฟังก์ชันเพิ่มงาน
 const addTask = async (title, priority) => {
     try {
-        await fetch('https://cpe-task-api-usb7.onrender.com', {
+        await fetch(API_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ const addTask = async (title, priority) => {
 // 3. ฟังก์ชันสลับสถานะ
 const toggleTaskStatus = async (id) => {
     try {
-        await fetch(`https://cpe-task-api-usb7.onrender.com/${id}`, {
+        await fetch(`${API_URL}/${id}`, {
             method: 'PUT'
         });
         fetchTasks();
@@ -49,7 +49,7 @@ const toggleTaskStatus = async (id) => {
 // 4. ฟังก์ชันลบงาน
 const deleteTask = async (id) => {
     try {
-        await fetch(`https://cpe-task-api-usb7.onrender.com/${id}`, {
+        await fetch(`${API_URL}/${id}`, {
             method: 'DELETE'
         });
         fetchTasks();
