@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Task Manager</title>
+    <!-- โหลดฟอนต์ Prompt เพื่อความคมชัดสวยงาม -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="indexstyle.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar ซ้ายมือ -->
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-icon">⚡</span>
+                <h2>TaskApp</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <span>📌 งานทั้งหมด</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- พื้นที่หลักตรงกลาง -->
+        <main class="main-content">
+            <header class="app-header">
+                <h1>Smart Task Manager</h1>
+                <p class="subtitle">จัดการงานและกิจกรรมประจำวันของคุณ</p>
+            </header>
+
+            <div class="content-container">
+                <!-- ฟอร์มเพิ่มงาน -->
+                <form id="taskForm" class="task-form">
+                    <input type="text" id="taskInput" placeholder="พิมพ์งานที่ต้องทำ..." required>
+                    <select id="prioritySelect">
+                        <option value="low">Low (ต่ำ)</option>
+                        <option value="medium" selected>Medium (กลาง)</option>
+                        <option value="high">High (ด่วน)</option>
+                    </select>
+                    <button type="submit" class="btn-submit">+ เพิ่มงาน</button>
+                </form>
+
+                <!-- กล่องแสดงรายการงาน (อยู่ตรงกลาง) -->
+                <div class="task-list-wrapper">
+                    <ul id="taskList" class="task-list"></ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
